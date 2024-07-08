@@ -9,7 +9,7 @@ From the project root folder execute the following:
 ```bash
 ./bin/run_cli.sh resources/example.edn
 ```
-You can edit the `./example.json` for different input or replace to the path of another desired file.
+You can edit the `/resources/example.json` for different input or replace to the path of another desired file.
 
 ## Tests
 To execute the tests run on terminal:
@@ -20,14 +20,14 @@ clj -X:test
 
 ## Dev mode
 
-### Creating socket REPL for dev session remote REPL
+### Creating socket for remote REPL dev session
 Firstly, install `clojure` package from [brew](https://formulae.brew.sh/formula/clojure) or your package manager.
 
 ```shell
 clj -J-Dclojure.server.repl="{:port 5555 :accept clojure.core.server/repl}"
 ```
 
-To load the namespace `double-book` and use the  `find-overlapping-pairs` function:
+Use the function `double-book/find-overlapping-pairs`:
 
 ``` clojure
 (def events [ <event1> <event2> ...])
