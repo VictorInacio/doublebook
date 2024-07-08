@@ -7,7 +7,7 @@ This program receives as input a collection of events and returns all overlappin
 From the project root folder execute the following:
 
 ```bash
-./bin/run_cli.sh ./example.json
+./bin/run_cli.sh resources/example.edn
 ```
 You can edit the `./example.json` for different input or replace to the path of another desired file.
 
@@ -15,37 +15,29 @@ You can edit the `./example.json` for different input or replace to the path of 
 To execute the tests run on terminal:
 
 ```bash
-
+clj -X:test
 ```
-
-## Schema and Format
-The input should 
-Events should follow this format
-
 
 ## Dev mode
 
-To start a Clojure repl run:
+### Creating socket REPL for dev session remote REPL
+Firstly, install `clojure` package from [brew](https://formulae.brew.sh/formula/clojure) or your package manager.
 
-```bash
+```shell
+clj -J-Dclojure.server.repl="{:port 5555 :accept clojure.core.server/repl}"
 ```
-To load the namespace `double-books` and use the  `check-events-overlap` function:
+
+To load the namespace `double-book` and use the  `find-overlapping-pairs` function:
 
 ``` clojure
 (def events [ <event1> <event2> ...])
 
-(check-events-overlap events)
+(find-overlapping-pairs events)
 
 => Overlap event1 event2 from t1 to t2.
 ```
 
 ## Other usages
 
-Any application can leverage the function `check-events-overlap` on API's or processing jobs once this
+Any application can leverage the function `find-overlapping-pairs` on API's or processing jobs once this
 function receives clojure arrays as input.
-
-For JSON processing there is a deserialization on the `run-cli` function.
-
-           
-                        
-
